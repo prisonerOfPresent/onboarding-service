@@ -1,0 +1,38 @@
+server:
+  port: 6080
+  servlet:
+    context-path: /onboarding
+
+
+spring:
+  #JPA Config
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+
+
+#onboarding database
+io.excitingstartup.onboarding.datasource.onboarding:
+ url: jdbc:mysql://localhost:3306/onboarding?createDatabaseIfNotExist=true
+ username: root
+ password : root123
+ driverClassName : com.mysql.cj.jdbc.Driver
+
+
+#shard database
+io.excitingstartup.onboarding.datasource.sharddb:
+ url: jdbc:mysql://localhost:3306/sharddb?createDatabaseIfNotExist=true
+ username: root
+ password : root123
+ driverClassName : com.mysql.cj.jdbc.Driver
+
+
+logging:
+  level:
+    root: DEBUG
+
+
+
