@@ -1,6 +1,6 @@
 package io.excitingstartup.service.onboarding.controller;
 
-import io.excitingstartup.service.onboarding.model.register.Register;
+import io.excitingstartup.service.onboarding.model.register.RegistrationMetaData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +16,10 @@ import javax.validation.Valid;
 
 @RestController
 @Slf4j
-public class RegisterController {
+public class RegistrationController {
 
     @PostMapping("/register")
-    public ResponseEntity<Register> register( @Valid @RequestBody Register register ){
+    public ResponseEntity<RegistrationMetaData> register(@Valid @RequestBody RegistrationMetaData registrationMetaData){
         return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
     }
 }

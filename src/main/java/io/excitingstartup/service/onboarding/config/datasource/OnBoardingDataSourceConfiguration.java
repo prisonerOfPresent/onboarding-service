@@ -2,6 +2,7 @@ package io.excitingstartup.service.onboarding.config.datasource;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -35,7 +36,8 @@ public class OnBoardingDataSourceConfiguration {
         return new DataSourceProperties();
     }
 
-    @Bean
+    @FlywayDataSource
+    @Bean("onBoardingDataSource")
     @Primary
     @ConfigurationProperties( "io.excitingstartup.onboarding.datasource.onboarding.configuration" )
     public DataSource onBoardingDataSource(){

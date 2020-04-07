@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
  */
 
 @Data
-public class Register {
+public class RegistrationMetaData {
     @NotBlank( message = "firstName must be provided." )
     String firstName;
     @NotBlank ( message = "lastName must be provided." )
