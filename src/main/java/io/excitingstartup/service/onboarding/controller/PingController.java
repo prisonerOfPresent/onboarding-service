@@ -1,6 +1,6 @@
 package io.excitingstartup.service.onboarding.controller;
 
-import io.excitingstartup.service.onboarding.service.RegisterService;
+import io.excitingstartup.service.onboarding.service.RegistrationService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +20,11 @@ import javax.inject.Inject;
 public class PingController {
 
 
-    private final RegisterService registerService;
+    private final RegistrationService registrationService;
 
     @Inject
-    public PingController( final RegisterService registerService ){
-        this.registerService = registerService;
+    public PingController( final RegistrationService registrationService){
+        this.registrationService = registrationService;
     }
 
 
@@ -32,7 +32,7 @@ public class PingController {
     public String ping(){
         log.info("Received ping request..");
         log.info("Responding with PONG..");
-        Boolean dbCreated = registerService.createDB();
+        Boolean dbCreated = registrationService.createDB();
         log.info( "DB Created?" + dbCreated.toString() );
         return ("PONG");
     }

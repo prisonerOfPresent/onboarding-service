@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class RegisterService {
+public class RegistrationService {
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    RegisterService( final JdbcTemplate jdbcTemplate ){
+    RegistrationService(final JdbcTemplate jdbcTemplate ){
         this.jdbcTemplate = jdbcTemplate;
     }
 
