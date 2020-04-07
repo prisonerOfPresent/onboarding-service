@@ -16,7 +16,7 @@ spring:
 
 #onboarding database
 io.excitingstartup.onboarding.datasource.onboarding:
- url: jdbc:mysql://localhost:3306/onboarding?createDatabaseIfNotExist=true
+ url: jdbc:mysql://localhost:3306/onboarding?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=yes&characterEncoding=UTF-8
  username: root
  password : root123
  driverClassName : com.mysql.cj.jdbc.Driver
@@ -24,7 +24,7 @@ io.excitingstartup.onboarding.datasource.onboarding:
 
 #shard database
 io.excitingstartup.onboarding.datasource.sharddb:
- url: jdbc:mysql://localhost:3306/sharddb?createDatabaseIfNotExist=true
+ url: jdbc:mysql://localhost:3306/sharddb?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=yes&characterEncoding=UTF-8
  username: root
  password : root123
  driverClassName : com.mysql.cj.jdbc.Driver
