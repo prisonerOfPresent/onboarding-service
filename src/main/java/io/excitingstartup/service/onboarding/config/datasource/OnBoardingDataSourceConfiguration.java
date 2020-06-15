@@ -16,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Objects;
 
 /**
  * @author Arun Vishnu
@@ -23,7 +24,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories ( basePackages = "io.excitingstartup.service.onboarding.persistance.onboarding",
+@EnableJpaRepositories ( basePackages = "io.excitingstartup.service.onboarding.persistence.onboarding",
         entityManagerFactoryRef = "onBoardingEntityManagerFactory",
         transactionManagerRef = "onBoardingTransactionManager"
 )
@@ -53,7 +54,7 @@ public class OnBoardingDataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean onBoardingEntityManagerFactory(EntityManagerFactoryBuilder builder){
             return builder
                     .dataSource( onBoardingDataSource() )
-                    .packages( "io.excitingstartup.service.onboarding.persistance.onboarding" )
+                    .packages( "io.excitingstartup.service.onboarding.persistence.onboarding" )
                     .build();
     }
 
@@ -62,7 +63,7 @@ public class OnBoardingDataSourceConfiguration {
     public PlatformTransactionManager onBoardingTransactionManager
             ( final @Qualifier("onBoardingEntityManagerFactory")
                      LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean ) {
-        return new JpaTransactionManager( localContainerEntityManagerFactoryBean.getObject() );
+        return new JpaTransactionManager(Objects.requireNonNull(localContainerEntityManagerFactoryBean.getObject()));
     }
 
 

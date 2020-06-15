@@ -21,7 +21,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories ( basePackages = "io.excitingstartup.service.onboarding.persistance.shard",
+@EnableJpaRepositories ( basePackages = "io.excitingstartup.service.onboarding.persistence.shard",
         entityManagerFactoryRef = "shardEntityManagerFactory",
         transactionManagerRef = "shardTransactionManager"
 )
