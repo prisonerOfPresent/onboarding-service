@@ -7,27 +7,30 @@ server:
 spring:
   #JPA Config
   jpa:
-    database: mysql
+    database: postgresql
     hibernate:
       ddl-auto: create
     generate-ddl: true
     show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  datasource:
+    platform: postgres
 
 
 #onboarding database
 io.excitingstartup.onboarding.datasource.onboarding:
- url: jdbc:mysql://localhost:3306/onboarding?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=yes&characterEncoding=UTF-8
- username: root
+ url: jdbc:postgresql://localhost:5432/onboarding?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=yes&characterEncoding=UTF-8
+ username: postgres
  password : root123
- driverClassName : com.mysql.cj.jdbc.Driver
+ driverClassName : org.postgresql.Driver
 
 
 #shard database
 io.excitingstartup.onboarding.datasource.sharddb:
- url: jdbc:mysql://localhost:3306/sharddb?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=yes&characterEncoding=UTF-8
- username: root
+ url: jdbc:postgresql://localhost:5432/sharddb?createDatabaseIfNotExist=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&useUnicode=yes&characterEncoding=UTF-8
+ username: postgres
  password : root123
- driverClassName : com.mysql.cj.jdbc.Driver
+ driverClassName : org.postgresql.Driver
 
 
 logging:

@@ -14,13 +14,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * @author Arun Vishnu
  */
+
 @Configuration
 @EnableWebSecurity
 public class OnBoardingSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
         auth.inMemoryAuthentication()
                 .withUser("excitingstartup-admin")
                 .password("exciting-secret")
